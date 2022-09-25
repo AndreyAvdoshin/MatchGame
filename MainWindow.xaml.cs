@@ -36,7 +36,7 @@ namespace MatchGame
         private void Timer_Tick(object? sender, EventArgs e)
         {
             thenthOfSecondElapsed++;
-            timeTextBlock.Text = (thenthOfSecondElapsed / 10F).ToString("0.0");
+            timeTextBlock.Text = (thenthOfSecondElapsed / 10F).ToString("0.0s");
             if (matchesFound == 8)
             { 
                 timer.Stop();
@@ -64,6 +64,7 @@ namespace MatchGame
             {
                 if (textBlock.Name != "timeTextBlock")
                 {
+                    textBlock.Visibility = Visibility.Visible;
                     int index = random.Next(animalEmoji.Count);
                     string nextEmoji = animalEmoji[index];
                     textBlock.Text = nextEmoji;
@@ -94,7 +95,7 @@ namespace MatchGame
                 matchesFound++;
                 textBlock.Visibility = Visibility.Hidden;
                 findingMatch = false;
-            }
+             }
             else
             { 
                 lastTextBlockClicked.Visibility = Visibility.Visible;
